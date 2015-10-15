@@ -63,8 +63,11 @@ void bounce() {
   yelY += yelDY;  if ( yelY<top || yelY>bottom ) yelDY *=  -1;
   bluX += bluDX;  if ( bluX<left || bluX>right ) bluDX *= -1;
   bluY += bluDY;  if ( bluY<top || bluY>bottom ) bluDY *=  -1;
+  if (cueDX != 0);
   cueX += cueDX;  if ( cueX<left || cueX>right ) cueDX *= -1;
   cueY += cueDY;  if ( cueY<top || cueY>bottom ) cueDY *=  -1;
+  
+  
 }
 void collisions() {
   float tmp;
@@ -81,6 +84,7 @@ void collisions() {
     tmp=yelDX;  yelDX=bluDX;  bluDX=tmp;
     tmp=yelDY;  yelDY=bluDY;  bluDY=tmp;
   }
+  if (cueDX != 0){ 
   if ( dist( bluX,bluY, cueX, cueY) < 30 ) {
     tmp=cueDX;  cueDX=bluDX;  bluDX=tmp;
     tmp=cueDY;  cueDY=bluDY;  bluDY=tmp;
@@ -94,7 +98,7 @@ void collisions() {
     tmp=yelDX;  yelDX=cueDX;  cueDX=tmp;
     tmp=yelDY;  yelDY=cueDY;  cueDY=tmp;
 } 
-}
+}}
 
 //// SHOW:  balls, messages
 void show() {
