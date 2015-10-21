@@ -36,6 +36,7 @@ void setup() {
    redDX=  random( 1,3 );   redDY=  random( 1,3 );
    yelDX=  random( 1,3 );   redDY=  random( 1,3 );
    bluDX=  random( 1,3 );   bluDY=  random( 1,3 );
+   score= 0;
  }
  //// NEXT FRAME:  table, bounce off walls, collisions, show all
 void draw() {
@@ -47,9 +48,15 @@ void draw() {
   collisions();
   show();
   fill(0);
+  textSize(12);
   text("Score:",450,40);
-  text("Press L to start cue ball",50,30);
- 
+  text("Press 'L' to start cue ball",50,30);
+  text("Press 'r' to reset table",50,50);
+  textSize(20);
+  text("1",redX-6,redY+6);     //numbers to balls
+  text("2",yelX-6,yelY+6);
+  text("3",bluX-6,bluY+6);
+  textSize(12);
 }
 //// SCENE:  draw the table with walls
 void table( float left, float top, float right, float bottom ) {
@@ -106,10 +113,10 @@ void collisions() {
 } 
 }
  fill(0);
- text(score, 500,40);
+ text(score, 500,40);  // Display score
  
  if( cueDX !=0) {
- if( dist( cueX, cueY, yelX,yelY) < 30 ) { // Display Score
+ if( dist( cueX, cueY, yelX,yelY) < 30 ) { //increase scor number
  score+= +1;  }
  if ( dist( cueX, cueY, redX,redY) < 30 ) {
    score+= +1;}
